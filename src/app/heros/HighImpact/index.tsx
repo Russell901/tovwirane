@@ -16,10 +16,10 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText 
   })
 
   return (
-    <div className="relative -mt-[10.4rem] flex items-end text-white" data-theme="dark">
-      <div className="container mb-8 z-10 relative">
-        <div className="max-w-[34rem]">
-          <RichText className="mb-6" content={richText} enableGutter={false} />
+    <div className="relative -mt-[10.4rem] flex items-center place-content-center text-white" data-theme="dark">
+      <div className="container mb-8 z-10 p-4 items-center relative">
+        <div className="max-w-[34rem] flex mx-auto">
+          <RichText className="mx-auto mb-2 text-center" content={richText} enableGutter={false} />
           {Array.isArray(links) && links.length > 0 && (
             <ul className="flex gap-4">
               {links.map(({ link }, i) => {
