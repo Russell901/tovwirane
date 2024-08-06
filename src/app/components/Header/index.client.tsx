@@ -14,7 +14,6 @@ interface HeaderClientProps {
 }
 
 export const HeaderClient: React.FC<HeaderClientProps> = ({ header }) => {
-  /* Storing the value in a useState to avoid hydration errors */
   const [theme, setTheme] = useState(null)
   const { headerTheme, setHeaderTheme } = useHeaderTheme()
   const pathname = usePathname()

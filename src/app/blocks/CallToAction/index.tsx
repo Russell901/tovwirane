@@ -14,7 +14,7 @@ export const CallToActionBlock: React.FC<
 > = ({ links, richText }) => {
   return (
     <div className="container">
-      <div className=" bg-blue-500 rounded-lg border-none p-8 flex flex-col gap-8 md:flex-row md:justify-between md:items-center">
+      <div className=" bg-blue-500 rounded-t-lg border-none p-8 flex flex-col gap-8 md:flex-row md:justify-between md:items-center">
         <div className="max-w-[48rem] flex items-center p-8">
           <RichText className=" text-white/80" content={richText} enableGutter={false} />
         </div>

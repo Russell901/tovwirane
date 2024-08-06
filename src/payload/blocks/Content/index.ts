@@ -34,6 +34,45 @@ const columnFields: Field[] = [
     ],
   },
   {
+    name: 'align',
+    type: 'select',
+    defaultValue: 'left',
+    options: [
+      {
+        label: 'Left',
+        value: 'left',
+      },
+      {
+        label: 'Center',
+        value: 'center',
+      },
+      {
+        label: 'Right',
+        value: 'right',
+      },
+    ],
+  },
+  {
+    name: 'image',
+    type: 'upload',
+    relationTo: 'media',  // Display images besiide content block
+  },
+  {
+    name: 'imageAlignment',
+    type: 'select',
+    defaultValue: 'left',
+    options: [
+      {
+        label: 'Left',
+        value: 'left',
+      },
+      {
+        label: 'Right',
+        value: 'right',
+      },
+    ],
+  },
+  {
     name: 'richText',
     type: 'richText',
     editor: lexicalEditor({
@@ -55,7 +94,7 @@ const columnFields: Field[] = [
   link({
     overrides: {
       admin: {
-        condition: (_, { enableLink }) => Boolean(enableLink),
+        condition: (_: any, { enableLink }: any) => Boolean(enableLink),
       },
     },
   }),

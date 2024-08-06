@@ -1,6 +1,7 @@
 import { cn } from '@/utilities/cn'
 import React from 'react'
 import RichText from 'src/app/components/RichText'
+import Image from 'next/image' // Assuming you're using Next.js for image optimization
 
 import type { Page } from '../../../payload-types'
 
@@ -28,7 +29,7 @@ export const ContentBlock: React.FC<
         {columns &&
           columns.length > 0 &&
           columns.map((col, index) => {
-            const { enableLink, link, richText, size } = col
+            const { enableLink, link, richText, size, image, imageAlignment } = col
 
             return (
               <div
@@ -37,8 +38,17 @@ export const ContentBlock: React.FC<
                 })}
                 key={index}
               >
-                <RichText content={richText} enableGutter={false} />
-                {enableLink && <CMSLink {...link} />}
+                <div className={`flex ${imageAlignment === 'right' ? 'flex-row-reverse' : ''}`}>
+                  {image && (
+                    <div className="w-1/2">
+                      <Image src={image.url} alt={image.alt || ''} width={500} height={300} />
+                    </div>
+                  )}
+                  <div className="w-1/2">
+                    <RichText content={richText} enableGutter={false} />
+                    {enableLink && <CMSLink {...link} />}
+                  </div>
+                </div>
               </div>
             )
           })}
